@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Posty</title>
-  <link rel="stylesheet" href={{asset('css/app.css')}} />
+  {{-- <link rel="stylesheet" href={{asset('css/app.css')}} /> --}}
   @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-200">
@@ -15,7 +15,7 @@
         <a href="" class="p-3">Home</a>
       </li>
       <li>
-        <a href="" class="p-3">Dashboard</a>
+        <a href="{{ route('dashboard') }}" class="p-3">Dashboard</a>
       </li>
       <li>
         <a href="" class="p-3">Post</a>
@@ -25,15 +25,18 @@
     <ul class="flex items-center">
       @auth
         <li>
-          <a href="" class="p-3">{{auth()->user()}}</a>
+          <a href="" class="p-3">Welcome, {{auth()->user()->name}}</a>
         </li>
         <li>
-          <a href="" class="p-3">Logout</a>
+          <form action="{{ route('logout') }}" method="POST" class="inline">
+            @csrf
+            <button type="submit" class="p-3">Logout</button>
+          </form>
         </li>
         @endauth
       @guest
         <li>
-          <a href="" class="p-3">Login</a>
+          <a href="{{ route('login')}}" class="p-3">Login</a>
         </li>
         <li>
           <a href="{{ route('register')}}" class="p-3">Register</a>
