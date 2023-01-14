@@ -2,6 +2,14 @@
 
 https://www.youtube.com/watch?v=MFh0Fd7BsjE
 
+## This Git
+
+https://github.com/samedan/23.01_laravel_traversy
+
+## Laravel DebugBar
+
+https://github.com/barryvdh/laravel-debugbar
+
 ## Git here
 
 > composer update -> php artisan serve

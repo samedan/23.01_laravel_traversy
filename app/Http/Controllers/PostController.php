@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index () {
-        $posts = Post::paginate(2); // Collection
+        // get the likes one with the posts on 1 request
+        $posts = Post::with(['user', 'likes'])->paginate(5); // Collection
 
         return view('posts.index', [
             'posts' => $posts
