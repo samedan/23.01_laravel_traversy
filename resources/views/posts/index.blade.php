@@ -27,7 +27,16 @@
         </button>
       </div>
   
+      @if($posts->count())
+      @foreach($posts as $post) 
+        <x-post :post="$post"/>
+      @endforeach
+        {{-- Pagination --}}
+        {{ $posts->links() }}
 
+    @else 
+      <p> {{$user->name}} does not have any posts. </p>
+    @endif
     </form>
 
     
