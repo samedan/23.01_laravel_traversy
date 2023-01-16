@@ -10,6 +10,8 @@ https://github.com/samedan/23.01_laravel_traversy
 
 https://github.com/barryvdh/laravel-debugbar
 
+> APP_DEBUG=true in .env
+
 ## Git here
 
 > composer update -> php artisan serve

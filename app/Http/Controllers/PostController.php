@@ -8,11 +8,18 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index () {
+        // Eager Loading
         // get the likes one with the posts on 1 request
         $posts = Post::latest()->with(['user', 'likes'])->paginate(5); // Collection
 
         return view('posts.index', [
             'posts' => $posts
+        ]);
+    }
+
+    public function show(Post $post) {
+        return view('posts.show', [
+            'post' => $post
         ]);
     }
 
