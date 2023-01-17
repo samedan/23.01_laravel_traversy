@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware(['auth'])->only(['store', 'destroy']);
+    }
+
     public function index () {
         // Eager Loading
         // get the likes one with the posts on 1 request

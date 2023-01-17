@@ -28,6 +28,11 @@
         </button>
       </div>
       @endauth
+
+      @guest
+            <p class="mb-5"><a href="{{ route('register')}}" class="text-blue-500">Sign up</a> or <a href="{{ route('login')}}" class="text-blue-500">Login</a> if you want to add a post or Like a post.</p>
+
+      @endguest
   
       @if($posts->count())
       @foreach($posts as $post) 
