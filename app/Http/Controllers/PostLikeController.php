@@ -23,8 +23,12 @@ class PostLikeController extends Controller
             'user_id'=> $request->user()->id
         ]);
 
-        // Send Email
-        Mail::to($post->user)->send(new PostLiked(auth()->user(), $post));
+        // Check if an post has already been deleted (unliked) before
+        if(!$post->likes()->onlyTrashed()->where('user_id', $request->user()->id)->count()) {
+            // Send Email only if is the 1st time liked
+            Mail::to($post->user)->send(new PostLiked(auth()->user(), $post));
+        }
+        
         
 
         // dd($post);

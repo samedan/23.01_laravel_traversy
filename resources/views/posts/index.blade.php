@@ -5,6 +5,7 @@
     
     
   <div class="w-8/12 bg-white p-6 rounded-lg">
+    @auth
     <form action="{{route('posts')}}" method="POST" class="mb-4">
       @csrf
       <div class="mb-4">
@@ -26,6 +27,7 @@
           Post
         </button>
       </div>
+      @endauth
   
       @if($posts->count())
       @foreach($posts as $post) 
