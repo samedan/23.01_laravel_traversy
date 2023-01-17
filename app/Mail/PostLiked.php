@@ -17,7 +17,7 @@ class PostLiked extends Mailable
 
     public $likerOfPost;
     public $post;
-    public $url;
+    
 
     /**
      * Create a new message instance.
@@ -28,6 +28,7 @@ class PostLiked extends Mailable
     {
         $this->likerOfPost = $likerOfPost;
         $this->post = $post;
+        // dd($post);
     }
 
     /**
@@ -39,9 +40,10 @@ class PostLiked extends Mailable
     {
         return new Envelope(
             subject: 'Someone liked your post',
-            with: [
-                $url => route('posts.show', $post)
-            ]
+            // with: [
+            //     $url => $post->id
+            // ]
+            
         );
     }
 
